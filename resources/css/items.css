@@ -1,0 +1,235 @@
+@charset    "UTF-8";
+.csgo img{
+    height:150px;
+    width:100px;
+    margin-left:35px;
+    float: left;
+}
+.csgo{
+    display: inline;    
+}
+
+.csgo .h3{
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    
+    margin-right: 0;
+    font-weight: bold;
+    padding-top:0;
+    margin-left: 17%;
+}
+.csgo h5{
+    padding-top: 6px;
+    margin-left: 38px;
+    margin-right: 100px;
+
+}
+
+.csgo .p1{
+    margin-left: 17%;
+    
+}
+.csgo p{
+   font-size: 11px;
+    margin-left: 4%;
+    margin-right: 12.624%;
+}
+.csgo button{
+    
+    padding: 2px;
+    width: 100px;
+}.swapbtn{
+margin-left: 20px;
+}
+.seetheoffer,.seetheoffer_rat{
+   margin-left:20px;
+    border-radius: 2px;
+    background-color: cyan;
+    border: none;
+    text-align: center;
+    cursor: pointer;  
+}
+.seetheoffer_rat{
+    margin-left: 155px;
+}
+.swapbtn{
+    border-radius: 2px;
+    background-color: cyan;
+    border: none;
+    text-align: center;
+    transition: all 0.5s;
+}
+.swapbtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .swapbtn span:after{
+    content: '\21C4';
+  }
+ 
+  .swapbtn span:after{
+    
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .swapbtn:hover span {
+    padding-right: 25px;
+  }
+  
+  .swapbtn:hover span:after{
+    opacity: 1;
+    right: 0;
+  }
+  .hide {
+    display: none;
+  }
+  
+  .clear {
+    float: none;
+    clear: both;
+  }
+  .rating{
+    width: 88px;
+  }
+  .rating, .avguserrating {
+    display: inline-block;
+    bottom: 20px;
+    margin-left: 0;
+    right: 0;
+    left: 88px;
+    height: 20px;
+    padding-right: 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+  }
+  .avguserrating{
+    width: 272px;
+  }
+ .avguserrating > label, .rating > label {
+      float: right;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      width: 14px;
+      color: #FFD700;
+  }
+  .avguserrating .active, .rating .active{
+    cursor: pointer;
+  }
+  .avguserrating .ratingval,.rating .ratingval{
+    left: 100px;
+    top: 3px;
+  }
+  .rating > .active:hover,
+  .rating > .active:hover ~ .active,
+  .avguserrating > .active:hover,
+  .avguserrating > .active:hover ~ .active {
+      color: transparent;
+  }
+  
+  .rating > .active:hover:before,
+  .rating > .active:hover ~ .active:before,
+  .avguserrating > .active:hover:before,
+  .avguserrating > .active:hover ~ .active:before{
+      content: "\2605";
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+  }
+  .ratingdesc, .userratingdesc{
+    display: inline-block;
+    font-size: 12px;
+  }
+  .ratingdesc{
+    
+    padding-left: 19px;
+  }
+  .userratingdesc{
+    padding-left: 113px;
+  }
+  .test{
+      display: inline-block;
+  }
+form{
+    height: 20px;
+}
+.avguserrating .halfstar,.rating .halfstar {
+    transform: scaleX(-1);
+    width: 8px;    
+    color: #FFD700;
+    overflow: hidden;
+}
+.stardiv{
+    height: 10px;
+}
+.ratingtable{
+    width:500px;
+}
+.itemratedesc{
+    font-size: 12px;
+    text-align: center
+}
+.swapmsg{
+    padding-left: 118px;
+}
+/* .star {
+    font-size: x-large;
+    width: 50px;
+    display: inline-block;
+    color: gold;
+}
+
+
+.star:before {
+  color:gold;
+    content:'\2606';
+}
+
+.star.half:after {
+    content:'\2605';
+    color: gold;
+    position: absolute;
+    margin-left: -20px;
+    width: 10px;
+    overflow: hidden;
+} */
+  /* .star-ratings-css {
+    unicode-bidi: bidi-override;
+    right: 10px;
+    color:  #FFD700;
+    font-size: 16.5px;
+    height: 20px;
+    width: 100px;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    
+  }
+
+  .star-ratings-css-top {
+      color: #FFD700;
+     
+      padding: 0;
+      position: absolute;
+      z-index: 1;
+      display: block;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .star-ratings-css-bottom {
+      padding: 0;
+      display: block;
+      z-index: 0;
+    } */

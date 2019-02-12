@@ -1,0 +1,19 @@
+<nav class="user">
+    <ul>
+        
+            <!-- <li><a href="/logout">Logout</a>&nbsp;|</li>
+         --> <% if(typeof session!=='undefined'){%>
+            <li> <form class="logout"action="/logout" method="POST">
+            <input class="linkbutton" type="submit" name="logoutbutton" value="logout">&nbsp;|
+        </form></li>
+            <% }
+            else{%>
+            <li><a href="/login">sign in</a>&nbsp;|</li>
+            <% }%>
+        
+            
+            <li><a href="myitems">games</a>&nbsp;| </li>
+            <li><a href="myswaps">swaps</a>&nbsp;| </li>
+            <li><a href="#">cart</a></li>
+    </ul>
+</nav>

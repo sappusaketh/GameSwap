@@ -1,0 +1,54 @@
+@charset    "UTF-8";
+.swaptable table {
+    border:1;
+    width:80%;
+    
+}
+.swaptable th{
+    border-bottom: 1px solid crimson;
+   
+}
+.halfstar{
+  
+    width: 8px;    
+    color: #FFD700;
+    overflow: hidden;
+}
+.stars{
+    color: #FFD700;
+}
+.swaptable td{
+    text-align: center;
+    width: 20%;
+    padding-bottom: 10px;
+   
+}
+.update{
+    border-radius: 2px;
+    padding: 2px;
+    background-color: cyan;
+    border: none;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+#lastrow td{
+    border-bottom: 1px solid crimson; 
+}
+
+
+#swap{
+    padding: 5px;   
+}
+ 
+.update:hover{
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+#beforelogin{
+    margin-left: 35px;
+}
+#beforelogin a{
+color: yellow;
+text-decoration: underline;
+}

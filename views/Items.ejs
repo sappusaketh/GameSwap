@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/items.css">
+    <title>Items</title>
+</head>
+<body>
+  
+        <% include ../partials/header.ejs%>
+        <% include ../partials/user-navigation.ejs%>
+  
+    
+    <main>
+           
+        <div class="csgo">
+            <div class="section" >
+                <% if(typeof errors!=='undefined'&& Array.isArray(errors)){
+                    
+                    errors.forEach(function(errors){
+                        if(errors.param=='itemcode'){%>
+                            <p id="errormsg"><%= errors.msg%> <strong> <%= errors.value%></strong></p>
+                        <%}
+                    })
+                        
+                }else{
+                    if(typeof sendinfo!=='undefined'){%>
+                        <ul class="breadcrumb">
+                            <li><a href="index">Home</a></li>
+                            <li><a href="categories">categories</a></li>
+                            <li><a href="items?itemcode=<%= sendinfo.itemcode%>">Items</a></li>
+                        </ul>
+                 
+                        <img class="csgologo" src="<%= sendinfo.imgurl%>" alt="<%= sendinfo.itemsname%>logo">
+                        <p class="h3"><%= sendinfo.itemname.trim()%></p>
+                        <p class="p1">by <%= sendinfo.itemby.trim()%></p>
+                        <table class="ratingtable"><tr><td>                      
+                        <!-- average item rating -->
+                        <div class="ratingdesc">Avg. rating:</div>
+                        <div class="stardiv">
+                                <div class="rating">
+                                       
+                                <% for(var i=5; i >= sendinfo.rating+1;i--){%>
+                                    <input id="text<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                    <label for="text<%= i %>" >☆</label>
+                                <%}%>
+                                <!-- fill half stars whose ratings are not integers -->
+                                <% if(Math.round(sendinfo.rating*2)/2-Math.floor(sendinfo.rating)==0.5){%>
+                                    <input id="text<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                    <label for="text<%= i %>" class="halfstar">&#x2605;</label>
+                                    
+                                <%}%>
+                            <%for(i=sendinfo.rating;i>=1;i--){%>
+                                <input id="text<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                    <label for="text<%= i %>" >&#9733;</label>
+                            <%}%>
+                            <input id="0" name="star" type="text" readonly class="radio-btn hide" />
+                                    <label for="0" class="ratingval" ><%= sendinfo.rating%></label>
+                        </div>  
+                        
+                    </div>
+                       <!-- user-itemrating -->
+                    <% if(typeof session!=='undefined'&& typeof rating!=='undefined'){%>
+                            
+                        <form action="/rating" method="POST">
+                            <input type="hidden" name="starrating" value="useritemrating">
+                            <input type="hidden" name="itemcode" value="<%= sendinfo.itemcode.trim() %>">
+                            <div class="ratingdesc">your rating:</div>
+                            <div class="stardiv">
+                            <div class="rating">
+
+                                    <!-- fill empty stars -->
+                                <% for(var i=5; i >= rating+1;i--){%>
+                                    <input id="<%= i %>" name="rating" type="submit" value="<%= i %>" class="radio-btn hide" />
+                                    <label class="active" for="<%= i %>" >☆</label>
+                                   
+                                <%} 
+                                if(Math.round(rating*2)/2-Math.floor(rating)==0.5){%>
+                                    <input id="<%= i %>" name="rating" type="submit" value="<%=rating%>" class="radio-btn hide" />
+                                    <label for="<%= i %>" class="halfstar">&#x2605;</label>
+                                    
+                                <%}
+                                <!-- fill rated stars -->
+                                for(var i=rating; i >= 1;i--){%>
+                                    <input id="<%= i %>" name="rating" type="submit" value="<%= i %>" class="radio-btn hide" />
+                                    <label class="active" for="<%= i %>" >&#9733;</label>
+                                   
+                                <%}%>
+                                 
+                                </div>
+                            </div>
+                    </form>
+                    
+                    <%}%>
+                   
+                    </td><td>
+
+                   
+                    <div class="userratingdesc">Avg. swapper rating:</div>
+                    <div class="stardiv">
+                            <div class="avguserrating">
+                                   
+                            <% for(var i=5; i >= avguserrat+1;i--){%>
+                                <input id="avg<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                <label for="avg<%= i %>" >☆</label>
+                            <%}%>
+                            <!-- fill half stars whose ratings are not integers -->
+                            <% if(Math.round(avguserrat*2)/2-Math.floor(avguserrat)==0.5){%>
+                                <input id="avg<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                <label for="avg<%= i %>" class="halfstar">&#x2605;</label>
+                                
+                            <%}%>
+                        <%for(i=avguserrat;i>=1;i--){%>
+                            <input id="avg<%= i %>" name="star" type="text" readonly class="radio-btn hide" />
+                                <label for="avg<%= i %>" >&#9733;</label>
+                        <%}%>
+                        <input id="ratval" name="star" type="text" readonly class="radio-btn hide" />
+                                <label for="ratval" class="ratingval" ><%= avguserrat%></label>
+                    </div>  
+                    
+                </div>
+                <% if(typeof session!=='undefined'&& typeof rateswapper!=='undefined'){%>
+                    <form action="/rating" method="POST">
+                        <input type="hidden" name="itemcode" value="<%= sendinfo.itemcode.trim() %>">
+                        <input type="hidden" name="offerId" value="<%= offerId.trim() %>">
+                        <input type="hidden" name="UserId2" value="<%= UserId2 %>">                   
+                        <input type="hidden" name="starrating" value="useruserrating">
+                        <div class="userratingdesc">your rating for swapper:</div>
+                        <div class="stardiv">
+                        <div class="avguserrating">
+
+                                <!-- fill empty stars -->
+                            <% for(var i=5; i >= userrating+1;i--){%>
+                                <input id="star<%= i %>" name="rating" type="submit" value="<%= i %>" class="radio-btn hide" />
+                                <label class="active" for="star<%= i %>" >☆</label>
+                               
+                            <%} 
+                             if(Math.round(userrating*2)/2-Math.floor(userrating)==0.5){%>
+                                <input id="star<%= i %>" name="rating" type="submit" value="<%=userrating%>" class="radio-btn hide" />
+                                <label for="star<%= i %>" class="halfstar">&#x2605;</label>
+                                
+                            <%}
+                            <!-- fill rated stars -->
+                            for(var i=userrating; i >= 1;i--){%>
+                                <input id="star<%= i %>" name="rating" type="submit" value="<%= i %>" class="radio-btn hide" />
+                                <label class="active" for="star<%= i %>" >&#9733;</label>
+                               
+                            <%}%>
+                             
+                            </div>
+                        </div>
+                </form>
+                
+                <%}%>
+            </td>       
+            </tr>
+            
+            </table>        
+            <% if(typeof ratednow!=='undefined'){
+                 if(ratednow==='item'){%>
+                    <p class="swapmsg">You rated: <%= rating%> for this item</p>
+                <%}else{%>
+                    <p class="swapmsg">You rated: <%= userrating%> for this swapper</p>
+                <%}
+                
+          }    
+
+                        <!-- if there is any msg data start -->
+                         if(typeof msg!== 'undefined'){%>
+                            <p class="swapmsg">Sorry,you do not have any available items for swapping. Please add more items to start swapping again!</p>
+                            <%}
+                            <!-- end -->
+                        else{%>
+                                
+                                <% if(typeof session!=='undefined'){%>
+                                    <!-- session started -->
+                                    
+                                    <% if (status==='swapped')
+                                    {%>
+                                        <p class="swapmsg">You have swapped this item</p>
+                                    <%}
+                                    else if(status==='pending'){%>
+                                        <p class="swapmsg">You have a swap offer for this item</p>
+                                        <% if(typeof rating!=='undefined'){%>
+                                            <button class='seetheoffer_rat'onclick="window.location.href='/myswaps'">See the offer</button>
+                                        <%}else{%>
+                                            <button class='seetheoffer'onclick="window.location.href='/myswaps'">See the offer</button>
+                                        <%}%>
+                                        
+                                    <%}
+                                    else{%>
+                                        <form action="action?theItem=<%= sendinfo.itemcode%>" method="POST">
+                                        <input type="hidden" name="itemList" value="<%= sendinfo.itemcode.trim()%>">
+                                        <%if(typeof userownitem !=='undefined'){%>
+                                            <button type="submit"  class="swapbtn" name="action" value="offer"><span>Swap</span></button> <br><br>
+                                        <%}%>
+                                    </form>
+                                        <!-- <button type="submit"  id = "rate" name="action" value="Rate"><span>Rate it</span> </button> -->
+                                    <%}
+                                       
+                                 }
+                                <!-- session end -->
+                                else{%>
+                                    <br> <br> <br> <br>
+                                <%}%>
+                
+                        <%}%>
+                        
+
+                        <h5 ><%= sendinfo.description.trim()%></h5>
+                        <p><%= sendinfo.detaildescription.trim()%></p>
+                        
+                    <%}
+                }%>
+            </div>
+        </div>
+    </main>
+    
+        <aside>
+            <%include ../partials/site-navigation.ejs%>
+           
+        </aside>
+
+        <% include ../partials/footer.ejs%>
+    
+   
+    
+</body>
+</html>

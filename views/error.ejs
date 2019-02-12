@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <title>Error</title>
+</head>
+<body>
+    
+   
+        <% include ../partials/header.ejs%>
+        <% include ../partials/user-navigation.ejs%>
+    
+    
+    <main>
+       
+        <div class="section">
+
+            <% if(typeof errors!=='undefined'){
+                errors.forEach(function(errors){%>
+                   <p id="errormsg"> <%= errors.msg%> <%= errors.value%></p>
+                <%})
+            }
+            else{%>
+                <p id="errormsg">requested page cannot be found</p>
+            <%}%>
+    </main>
+    
+        <aside>
+           <%include ../partials/site-navigation.ejs%>
+           
+        </aside>
+
+        <% include ../partials/footer.ejs%>
+    
+   
+    
+</body>
+</html>

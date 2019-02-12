@@ -1,0 +1,150 @@
+@charset    "UTF-8";
+body,.message{
+   /* background-image: url("fortnite1.jpg");*/
+   background-color: rgb(0, 0, 0);
+}
+body,a,.linkbutton,.message{
+    font-family: "Courier New", Courier, monospace;
+color:rgb(6, 238, 6);
+    /*color: #FEE058;*/
+   text-decoration: none;
+}
+.logo {
+    padding-left:5px;  
+ padding-top: 0.3%;
+    height: 50px;
+    width: 85px;
+    float: left;
+}
+span.small{
+    float:right;
+    font-size: 12px;
+    margin-top: 5px;  
+}
+section{
+    overflow: auto;
+    border: none;
+    position: relative;
+    overflow: auto;
+    
+}
+header,.user,aside{
+    overflow: auto;
+    border: thin solid;
+    border-radius: 10px;
+    position: relative; 
+}
+#head{
+    font-size: 18.5px;
+    text-align: center;
+  
+   }
+.user li{
+    display: inline;
+    padding-left:0.26% ;
+}
+.user{
+    text-align: center;
+    
+   top: 5px;
+  margin-bottom: 10px;
+    
+}
+aside{
+    width: 25%;  
+    height: 100%;
+    padding-bottom: 23.5%; 
+}
+.section{
+    float: right;  
+    width:74.5%;   
+}
+footer{
+    border: thin solid;
+    border-radius: 10px;
+    bottom: 0.5%;
+    text-align:center;
+    margin-top:0.5% ;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.index_maincontent{
+    overflow: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width :50%;
+}
+ul  {
+    list-style: none;
+}
+li a:hover ,a:hover,.linkbutton:hover{
+    color:cyan;
+    outline: 0;
+    text-decoration: underline;
+}
+.breadcrumb{
+    margin-top: 0%;
+}
+ul.breadcrumb li {
+    display: inline;  
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: rgb(11, 253, 221);
+    content: ">";
+}
+
+.message{
+ text-align: center;
+  width: 600px;
+  font-family: inherit;
+  font-size: 12px;
+  padding: none;
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+}
+
+.asbutton {
+    display: block;
+    width: 10px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+
+#errormsg{
+    color: rgb(255, 137, 1);
+    padding-left: 150px;
+    font-size: 16px;
+}   
+#beforelogin{
+    margin-left: 35px;
+}
+#beforelogin a{
+color: yellow;
+text-decoration: underline;
+}
+.logout{
+    height: 18px;
+    display: inline-block;
+}
+.linkbutton{
+    background: none;
+    font-size: 16px;
+    padding-right: 0px;
+    border: none;
+    cursor: pointer; 
+}

@@ -1,0 +1,10 @@
+<header>
+    <a href="index"><img class="logo" src="../resources/images/logo.jpg" alt="logo" ></a> 
+    <% if(typeof session!=='undefined'){%>     
+        <p> <span class="small">Welcome <%= Userfname%> </span></p>
+    <% }
+    else{%>
+    <p> <span class="small">Not Signed in</span></p>
+    <% }%>
+       <p id="head"> <b><a href="index"> G2S GameSwap</a></b>   </p>  
+</header>

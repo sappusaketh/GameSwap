@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/swap.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>swap</title>
+</head>
+<body>
+    <% include ../partials/header.ejs%>
+    <% include ../partials/user-navigation.ejs%>
+
+    
+    <main>
+            <div class="section">
+                    <ul class="breadcrumb">
+                            <li><a href="index">Home</a></li>
+                            <li><a href="#">swap games</a></li>
+
+                          </ul>
+                <h2>swap this item</h2>
+                <img class="csgologo" src="<%= sendinfo.imgurl%>" alt="<%= sendinfo.itemsname%>logo">
+                <h3><%= sendinfo.itemname%></h3>
+                <p id="p1">by <%= sendinfo.itemby%></p>
+                <p id="swapcontent"><%= sendinfo.description%></p>
+                <form action="/confirmswap" method="POST">
+                    <input type="hidden" name="offereeId" value= "<%= sendinfo.UserId %>">
+                    <% if(typeof itemobj!=='undefined'&& typeof swapitemlistobj!=='undefined'){%>
+                        <input type="hidden" name="wantitem" value= "<%= itemobj%>">
+                        <input type="hidden" name="swapitemlist" value='<%= swapitemlistobj %>'>
+                    <%}%>
+                    
+                    <input type="hidden" name="offereeitemId" value= "<%= sendinfo.itemcode %>">
+                   
+                <div class="itemswap">
+                     <h2>select an item from your available swaps</h2>
+                     <span class="inline">
+                     <table id ="tab1" >
+                         <% for (var i=0;i< swapitemlist.length;i++){%>
+
+                         
+                        <tr id="firstrow">
+                            <td >
+                                
+                                <label>  <input type="radio" name="swapitem" value="<%= swapitemlist[i].itemcode %>" /><span id='rdlabel'><a href ="items?itemcode=<%= swapitemlist[i].itemcode %>"><%= swapitemlist[i].itemsname %></a></span></label>
+                                
+                            </td>
+                        </tr> 
+                    <%}%>
+                     </table>
+                    </span><span class="table">
+                     <button id="swap" type="submit"  name="action" value="confirmswap">confirm swap</button></span>  
+                     <% if(typeof selectany!=='undefined'){%>
+                        <div id="errormsgswap"><p>please select any item from the available swaps to confirm swap</p></div>
+                     <%}%> 
+                </div>
+               
+            </form>
+           </div>
+        </main>
+    <aside>
+        <%include ../partials/site-navigation.ejs%>
+        
+     </aside>
+
+     <% include ../partials/footer.ejs%>
+</body>
+</html>

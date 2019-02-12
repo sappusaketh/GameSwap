@@ -1,0 +1,43 @@
+#lastrow td{
+    border-bottom: 1px solid crimson; 
+}
+.swaptable td{
+    text-align: center;
+    width: 33.3%;
+    padding-bottom: 10px;
+   
+}
+.swaptable th{
+    border-bottom: 1px solid crimson; 
+}
+.swaptable table{
+    width: 100%;
+}
+.accept, .reject{
+    border-radius: 2px;
+    padding: 5px;
+    padding-right:20px; 
+    background-color: cyan;
+    border: none;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+.accept{
+    padding-right:20px; 
+    padding-left:20px; 
+}
+.reject{
+    padding-left:20px; 
+}
+
+.withdrawswap{
+    padding: 5px;
+    border-radius: 2px;
+    width: 165px;
+    background-color: cyan;
+    border: none;
+}
+.accept:hover,.reject:hover,.withdrawswap:hover{
+    background-color: #4CAF50;
+    cursor: pointer;
+}

@@ -1,0 +1,105 @@
+#login{
+    border-color:rgb(6, 238, 6);
+    background: #000;
+    /* border-style: solid; */
+    border-radius: 25px;
+    padding-left: 250px;
+    padding-top: 90px;
+}
+/****  floating-Lable style start ****/
+.floating-label { 
+    position:relative; 
+    margin-bottom:20px; 
+  }
+  .floating-input  {
+    font-size:14px;
+    padding:4px 4px;
+    display:inline-block;
+    color: rgb(6, 238, 6);
+    height:30px;
+    background-color: transparent;
+    border:none;
+    border-bottom:1px solid rgb(6, 238, 6);
+  }
+  
+  .floating-input:focus {
+       outline:none;
+       border-bottom:2px solid rgb(6, 238, 6);
+  }
+  
+  label {
+    color:green;
+    font-size:14px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:5px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
+    top:-18px;
+    font-size:14px;
+    color:rgb(6, 238, 6);
+  }
+  
+  
+  
+  /* active state */
+  .floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after{
+    width:50%;
+  }
+  
+.floating-input, .floating-input:before, .floating-input:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  
+  
+  /* highlighter */
+  .highlight {
+    position:absolute;
+    height:50%; 
+    width:100%; 
+    top:15%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* active state */
+  .floating-input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+/* #login input[type=text],input[type=password]{
+    padding: 10px;
+    font-family: "Courier New", Courier, monospace;
+border-radius: 2px;
+border-color:rgb(6, 238, 6);
+
+} */
+
+#loginbutton{
+    background:rgb(11, 253, 221);
+    border: 0;
+    width: 38%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+#register a{
+    color:#F5E900;
+    text-decoration: underline;
+}
+.invalid{
+    color:rgb(255, 175, 4) ;
+    font-size: 12px;
+    padding-left: 10px;
+}

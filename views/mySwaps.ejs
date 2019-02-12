@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/mySwaps.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Swaps</title>
+</head>
+<body>
+    <% include ../partials/header.ejs%>
+    <% include ../partials/user-navigation.ejs%>
+    
+    <main>
+        <div class="section">
+                <ul class="breadcrumb">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="mySwaps">My swaps</a></li>
+                </ul>
+                <% if(typeof session==='undefined'){%>
+                    <div id="beforelogin"> <p>please <span><a href="/login">login</a></span> to view myswaps</div>
+                 <%}
+                 else{%>
+                <h2><%= Userfname%> swap offers</h2>
+         <div class="swaptable">
+            <table>
+                <tr>
+                    <th>Games</th>
+                    <th>Swap Offer</th>
+                    <th></th>
+                </tr>
+                
+                
+             
+                
+                
+                <% if(pendingstatus===false){%>
+
+                    <tr id="lastrow">
+                        <td colspan="3"  ><input class='message' type='text' name='msgfornoitems' value='no items in pending status' readonly></td>
+                    </tr>
+        
+                <% }
+                else{
+                    for (var i=0;i< allitems.length;i++){
+
+                    
+                %>
+                <% if(allitems[i].status=='pending'){%>
+                <tr id="lastrow">
+                
+
+                     <%if(allitems[i].offererId==UserId){%>
+                        <form action="action?theItem=<%= allitems[i].offereritemId%>" method="POST">
+                        <input type="hidden" name="itemList" value="<%= allitems[i].offereritemId%>">
+                        <input type="hidden" name="offerId" value="<%= allitems[i].offerId%>">
+                        <input type="hidden" name="offereritemstatus" value="<%= allitems[i].offereritem.itemstatus%>">
+                        <td><a href="Items?itemcode=<%= allitems[i].offereritemId %>"><%= allitems[i].offereritem.itemsname%></a></td>
+                        <td><a href="Items?itemcode=<%= allitems[i].offereeitemId %>"><%= allitems[i].offereeitem.itemsname%></a></td>
+                        <td><button type="submit" class="withdrawswap" name="action" value="withdrawswap">Withdraw Swap</button></td>
+                        </form>
+                    <%}
+                    
+                    
+                    else if(allitems[i].offereeId==UserId){%>
+                        <form action="action?theItem=<%= allitems[i].offereeitemId%>" method="POST">
+                        <input type="hidden" name="itemList" value="<%= allitems[i].offereeitemId%>">
+                        <input type="hidden" name="offerId" value="<%= allitems[i].offerId%>">
+                        <input type="hidden" name="offereeitemstatus" value="<%= allitems[i].offereeitem.itemstatus%>">
+                        <td><a href="Items?itemcode=<%= allitems[i].offereeitemId %>"><%= allitems[i].offereeitem.itemsname%></a></td>
+                        <td><a href="Items?itemcode=<%= allitems[i].offereritemId %>"><%= allitems[i].offereritem.itemsname%></a></td>
+                        <td><input type="submit" class="accept" name="action" value="Accept"></button>     
+                        <input type="submit" class="reject" name="action" value="Reject"></button></td>
+                        </form>
+                    <%}%>
+                </tr>
+                <%}%>
+                
+               
+            <% }
+          }%>
+                
+            </table>
+
+            <h2>Recent swaps</h2>
+            <table ><tr>
+                    <th>Your item</th>
+                    <th>Swapper item</th>
+                    <th>offer status</th>
+                </tr>
+                  
+                <% if(swappedstatus===false){%>
+
+                    <tr id="lastrow">
+                        <td colspan="3"  ><input class='message' type='text' name='msgfornoitems' value='No completed swaps' readonly></td>
+                    </tr>
+        
+                <% }else{
+                for (var i=0;i< allitems.length;i++){%>
+                    <% if(allitems[i].status=='swapped'){%>
+                    <tr id="lastrow">
+                   
+
+                        <%if(allitems[i].offererId==UserId){%>
+                            
+                            <td><a href="Items?itemcode=<%= allitems[i].offereritemId %>"><%= allitems[i].offereritem.itemsname%></a></td>
+                            <td><a href="Items?itemcode=<%= allitems[i].offereeitemId %>"><%= allitems[i].offereeitem.itemsname%></a></td>
+                            <td><%= allitems[i].status.trim()%></td>
+                            
+                        <%}
+                        
+                        
+                        else if(allitems[i].offereeId==UserId){%>
+                            
+                            <td><a href="Items?itemcode=<%= allitems[i].offereeitemId %>"><%= allitems[i].offereeitem.itemsname%></a></td>
+                            <td><a href="Items?itemcode=<%= allitems[i].offereritemId %>"><%= allitems[i].offereritem.itemsname%></a></td>
+                            <td><%= allitems[i].status%></td>
+                            
+                        <% }%>
+                    </tr>
+                    <%}
+                    
+                 }
+            }%>
+             
+                </table>
+         </div>  
+         
+        <% }%>
+        </div>
+        </main>
+    <aside>
+        <%include ../partials/site-navigation.ejs%>
+        
+     </aside>
+
+     <% include ../partials/footer.ejs%>
+</body>
+</html>
