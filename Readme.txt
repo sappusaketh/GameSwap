@@ -1,7 +1,7 @@
 to run application
 1.npm init
 2. cd controls from root directory
-3. nodemon app.js
+3. node app.js (or) nodemon app.js
 
 Login credentials:
 
