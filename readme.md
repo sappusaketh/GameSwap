@@ -1,10 +1,11 @@
 ### How to run application
 
 - Make sure you have [node.js](https://nodejs.org/en/) and mongo db (Ignore this if you are using cloud based mongoDB) installed
-- npm install
-- If running for first time and require mock/sample data cd models/ && node initDB.js (Make sure you have Mongo db installed)
-- cd controls from root directory
-- node app.js (or) nodemon app.js
+- update you db url in `models/DBscript.js` and `models/initDB.js`
+- `npm install`
+- If running for first time and would like to populate DB with mock/sample data then `cd models` && `node initDB.js`
+- `cd controls` from root directory
+- `node app.js` (or) `nodemon app.js`
 
 Check UserManual.pdf for more info on how to use the application
 
