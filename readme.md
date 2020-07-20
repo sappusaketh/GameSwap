@@ -9,7 +9,7 @@
 
 Check UserManual.pdf for more info on how to use the application
 
-### Login credentials:
+### Login credentials for mock/sample data:
 
 <details>
 <summary>user1</summary>
