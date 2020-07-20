@@ -1,3 +1,18 @@
+## Application overview
+
+As every gamer desires to play almost all different kinds and latest games but, it is expensive to buy all the games. So Gameswap is here to fulfill desires of all the gamers who wish to play all the games which they don’t possess. This was the main idea behind the application.
+
+- Application goal is to build an application which creates a platform for the users who are looking to swap/exchange their items with the others who are willing to do the same.
+- This application is games based swap application.
+  Following are the application functionalities:
+- Create a new account/Register with the application
+- Sign in
+- Catalog category view based on item category
+- View items according to user profile
+- Perform a swap
+- Give feedback to the items and users
+- Delete the items in the user profile
+
 ### How to run application
 
 - Make sure you have [node.js](https://nodejs.org/en/) and mongo db (Ignore this if you are using cloud based mongoDB) installed
